@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { View, Text, Image, } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {
   widthPercentageToDP as wp,
@@ -9,13 +9,6 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Index() {
-  // useEffect(() => {
-  //     StatusBar.setBarStyle("light-content");
-  //     if (Platform.OS === "android") {
-  //       StatusBar.setBackgroundColor("rgba(0,0,0,0)");
-  //       StatusBar.setTranslucent(true);
-  //     }
-  //   }, []);
   return (
     <View className="flex-1 flex justify-end">
       <StatusBar style="light" />
@@ -31,11 +24,48 @@ export default function Index() {
         className="flex justify-end pb-12 space-y-8"
       >
         <View className="flex items-center">
-           <Text style={{fontSize: hp(5)}} className='text-white'>
-            Best <Text className='text-rose-500'>Workouts</Text> 
-           </Text>
+          <Text style={{ fontSize: hp(5) }} className="text-white font-bold">
+            ogien{' '}
+            <Text
+              style={{ fontSize: hp(5) }}
+              className="text-rose-500 font-bold tracking-wide"
+            >
+              z ku.
+            </Text>
+          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text
+              style={{ fontSize: hp(5), marginRight: 15 }}
+              className="text-white font-bold"
+            >
+              dokręć
+            </Text>
+            <Image
+              source={require('../assets/images/sruba.png')}
+              style={{ width: hp(5), height: hp(5) }}
+              resizeMode="contain"
+            />
+          </View>
         </View>
-        </LinearGradient>
+        <View>
+          <TouchableOpacity
+            style={{ height: hp(6), width: wp(80) }}
+            className="bg-rose-500 flex flex-row items-center justify-center mx-auto rounded-full"
+          >
+            <Image
+              source={require('../assets/images/dzik_logo.png')}
+              style={{ width: wp(10), height: hp(10) }}
+              resizeMode="contain"
+            />
+            <Text
+              style={{ fontSize: hp(3) }}
+              className="text-white font-bold tracking-wider"
+            >
+              JAZDA
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
     </View>
   );
 }
