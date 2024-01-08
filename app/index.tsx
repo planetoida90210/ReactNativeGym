@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
-
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { LinearGradient } from 'expo-linear-gradient';
-import Animated, { FadeInDown, FadeOut } from 'react-native-reanimated';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function Index() {
+  const router = useRouter();
   return (
     <View className="flex-1 flex justify-end">
       <StatusBar style="light" />
@@ -53,6 +55,7 @@ export default function Index() {
         </Animated.View>
         <Animated.View entering={FadeInDown.delay(100).springify()}>
           <TouchableOpacity
+            onPress={() => router.push('home' as `http${string}`)}
             style={{ height: hp(6), width: wp(80) }}
             className="bg-rose-500 flex flex-row items-center justify-center mx-auto rounded-full"
           >
