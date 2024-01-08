@@ -7,6 +7,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { LinearGradient } from 'expo-linear-gradient';
+import Animated, { FadeInDown, FadeOut } from 'react-native-reanimated';
 
 export default function Index() {
   return (
@@ -23,7 +24,10 @@ export default function Index() {
         end={{ x: 0.5, y: 0.8 }}
         className="flex justify-end pb-12 space-y-8"
       >
-        <View className="flex items-center">
+        <Animated.View
+          entering={FadeInDown.delay(100).springify()}
+          className="flex items-center"
+        >
           <Text style={{ fontSize: hp(5) }} className="text-white font-bold">
             ogien{' '}
             <Text
@@ -46,8 +50,8 @@ export default function Index() {
               resizeMode="contain"
             />
           </View>
-        </View>
-        <View>
+        </Animated.View>
+        <Animated.View entering={FadeInDown.delay(100).springify()}>
           <TouchableOpacity
             style={{ height: hp(6), width: wp(80) }}
             className="bg-rose-500 flex flex-row items-center justify-center mx-auto rounded-full"
@@ -64,7 +68,7 @@ export default function Index() {
               JAZDA
             </Text>
           </TouchableOpacity>
-        </View>
+        </Animated.View>
       </LinearGradient>
     </View>
   );
