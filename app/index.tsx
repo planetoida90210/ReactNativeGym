@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useNavigation, useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 
@@ -12,6 +12,14 @@ import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function Index() {
   const router = useRouter();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+
   return (
     <View className="flex-1 flex justify-end">
       <StatusBar style="light" />
@@ -28,13 +36,13 @@ export default function Index() {
       >
         <Animated.View
           entering={FadeInDown.delay(100).springify()}
-          className="flex items-center"
+          className="flex items-center pb-3"
         >
           <Text style={{ fontSize: hp(5) }} className="text-white font-bold">
             ogien{' '}
             <Text
               style={{ fontSize: hp(5) }}
-              className="text-rose-500 font-bold tracking-wide"
+              className="text-[#fa5641] font-bold tracking-wide"
             >
               z ku.
             </Text>
@@ -53,11 +61,14 @@ export default function Index() {
             />
           </View>
         </Animated.View>
-        <Animated.View entering={FadeInDown.delay(100).springify()}>
+        <Animated.View
+          entering={FadeInDown.delay(100).springify()}
+          className="pb-3"
+        >
           <TouchableOpacity
             onPress={() => router.push('home' as `http${string}`)}
             style={{ height: hp(6), width: wp(80) }}
-            className="bg-rose-500 flex flex-row items-center justify-center mx-auto rounded-full"
+            className="bg-[#fa5641] flex flex-row items-center justify-center mx-auto rounded-full"
           >
             <Image
               source={require('../assets/images/dzik_logo.png')}
